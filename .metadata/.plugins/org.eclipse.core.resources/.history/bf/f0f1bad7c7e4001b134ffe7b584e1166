@@ -1,0 +1,50 @@
+package com.skilldistillery.jpavideostore.client;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.skilldistillery.jpavideostore.entities.Film;
+import com.skilldistillery.jpavideostore.entities.Rental;
+import com.skilldistillery.jpavideostore.entities.Store;
+
+public class JPQLRelationshipsLab {
+	
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoStore"); 
+	private EntityManager em; 
+	
+	public List<Store> getStoresByState(String state) {
+		List<Store> stores = null; 
+		
+		// SELECT COUNT(*) FROM store s JOIN address a ON s.address_id = a.id WHERE a.state_province = 
+		
+		String jpql = "SELECT s FROM Store s WHERE s.address.state = :state"; 
+		stores = em.createQuery(jpql, Store.class).getResultList();
+				   .setParameter("state", state); 
+				   .getResultList(); 
+		
+		em.close();
+		return stores; 
+	}
+	
+	public List<Rental> getRentalsForCustomerWithCustomerId(int ids) {
+		List<Rental> rentals = null; 
+		
+		return rentals; 
+	}
+	
+	public List<Film> getFilmsForActorWithId(int id) {
+		List<Film> films = null; 
+		
+		return films; 
+	}
+	
+	public int getNumberOfFilmsForCategforyWithName(String name) {
+		int count = -1; 
+		
+		return count; 
+	}
+
+}

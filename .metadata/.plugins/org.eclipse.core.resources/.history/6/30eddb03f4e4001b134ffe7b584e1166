@@ -1,0 +1,110 @@
+package com.skilldistillery.jpavideostore.entities;
+
+import java.text.DateFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Payment {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private double amount; 
+	
+	@Column(name = "payment_date")
+	private DateFormat paymentDate; 
+	
+	@ManyToOne
+	@JoinColumn(name = "rental_id")
+	private Rental rental; 
+	
+
+	// methods
+	public Payment() { }
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getRentalId() {
+		return rentalId;
+	}
+
+	public void setRentalId(int rentalId) {
+		this.rentalId = rentalId;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public DateFormat getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(DateFormat paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Payment [id=" + id + ", rentalId=" + rentalId + ", amount=" + amount + ", paymentDate=" + paymentDate
+				+ "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + id;
+		result = prime * result + ((paymentDate == null) ? 0 : paymentDate.hashCode());
+		result = prime * result + rentalId;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
+			return false;
+		if (id != other.id)
+			return false;
+		if (paymentDate == null) {
+			if (other.paymentDate != null)
+				return false;
+		} else if (!paymentDate.equals(other.paymentDate))
+			return false;
+		if (rentalId != other.rentalId)
+			return false;
+		return true;
+	}
+
+
+}

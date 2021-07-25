@@ -1,0 +1,30 @@
+package com.skilldistillery.jpavideostore.entities;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.skilldistillery.jpavideostore.client.JPQLRelationshipsLab;
+
+class JPQLRelationshipsTest {
+	
+	private JPQLRelationshipsLab lab; 
+
+	@BeforeEach
+	void setUp() throws Exception {
+		lab = new JPQLRelationshipsLab(); 
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		lab = null; 
+	}
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

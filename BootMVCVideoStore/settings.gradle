@@ -1,0 +1,4 @@
+rootProject.name = 'BootMVCVideoStore'
+
+
+includeFlat 'JPAVideoStore'

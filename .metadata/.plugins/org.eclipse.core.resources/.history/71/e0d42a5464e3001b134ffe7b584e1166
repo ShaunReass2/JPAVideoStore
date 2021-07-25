@@ -1,0 +1,5 @@
+package com.skilldistillery.jpavideostore.entities;
+
+public class Country {
+
+}

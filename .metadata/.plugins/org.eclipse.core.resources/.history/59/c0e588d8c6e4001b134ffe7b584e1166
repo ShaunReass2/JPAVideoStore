@@ -1,0 +1,27 @@
+package com.skilldistillery.jpavideostore.client;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.skilldistillery.jpavideostore.entities.Store;
+
+public class JPQLRelationshipsLab {
+	
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("VideoStore"); 
+	private EntityManager em; 
+	
+	public List<Store> getStoresByState(String state) {
+		List<Store> stores = null; 
+		
+		// SELECT COUNT(*) FROM store s JOIN address a ON s.address_id = a.id WHERE a.state_province = 
+		
+		String jpql = "SELECT s FROM Store s WHERE s.address.state = :state"; 
+		stores = em.createQuery(jpql, Store.class).getResultList();
+		
+		return stores; 
+	}
+
+}

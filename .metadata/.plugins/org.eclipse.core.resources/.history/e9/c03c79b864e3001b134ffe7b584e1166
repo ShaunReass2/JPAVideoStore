@@ -1,0 +1,48 @@
+package com.skilldistillery.jpavideostore.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Country {
+	
+	@Id
+	@Column(name"country_code")
+	private String countryCode; 
+	
+	private String name; 
+	
+	
+	//methods
+	public Country() { }
+
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+
+	public void setCountryCode(String countryCode) {
+		this.countryCode = countryCode;
+	}
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Country [countryCode=" + countryCode + ", country=" + country + "]";
+	}
+	
+	
+
+}

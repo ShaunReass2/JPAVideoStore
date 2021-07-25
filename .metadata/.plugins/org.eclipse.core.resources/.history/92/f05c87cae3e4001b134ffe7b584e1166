@@ -1,0 +1,9 @@
+package com.skilldistillery.jpavideostore.entities;
+
+public class InventoryItem {
+
+	private int id; 
+	
+	private MediaCondition mediaCondition; 
+	
+}

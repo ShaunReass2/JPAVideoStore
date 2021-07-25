@@ -1,0 +1,20 @@
+package com.skilldistillery.jpavideostore.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Country {
+	
+	@Id
+	private String countryCode; 
+	
+	private String country; 
+	
+	
+	//methods
+	public Country() { }
+	
+	
+
+}
